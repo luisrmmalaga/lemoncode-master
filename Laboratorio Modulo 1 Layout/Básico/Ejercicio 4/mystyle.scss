@@ -1,0 +1,53 @@
+body {
+  background-color: aquamarine;
+}
+
+$base-color: limegreen;
+
+.card {
+  background-color: white;
+  border: 2px solid lightgray;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 200px 1fr;
+  width: 300px;
+  font-family: Arial, sans-serif;
+}
+
+.main {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr 30px 60px;
+  gap: 10px;
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  font-size: 30px;
+  padding: 10px 0px; 
+}
+
+.footer {
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+
+  span.published-date {
+    color: $base-color;
+
+    &::before {
+      content: 'Published: ';
+      color: initial;
+    }
+  }
+}
+
+.more-info {
+  background-color: $base-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

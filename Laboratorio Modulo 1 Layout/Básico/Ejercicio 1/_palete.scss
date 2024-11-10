@@ -1,0 +1,53 @@
+$base-color-1: red;
+$base-color-2: blue;
+$base-color-3: green;
+
+@function darker-color($color, $number) {
+    @return darken($color, $number * 2.5);
+}
+
+@function lighter-color($color, $number) {
+    @return lighten($color, $number * 2.5);
+}
+
+@mixin darken($color, $number) {
+    background-color: darker-color($color, $number);
+}
+
+@mixin lighten($color, $number) {
+    background-color: lighter-color($color, $number);
+}
+
+@mixin complement_color($color) {
+    color: complement($color);
+}
+
+@mixin darker-box($container-color, $number) {
+    .box.darken-#{$number}{
+        @include darken($container-color ,$number);
+
+        span.color-box-text {
+        @include complement_color(darker-color($container-color, $number));
+        }
+    }
+}
+
+@mixin lighter-box($container-color, $number) {
+    .box.lighten-#{$number} {
+        @include lighten($container-color ,$number);
+
+        span.color-box-text {
+          @include complement_color(lighter-color($container-color, $number));
+        }
+    }
+}
+
+@mixin base-box($container-color) {
+    .box.base-color {
+        background-color: $container-color;
+
+        span.color-box-text {
+          color: white;
+        }
+    }
+}

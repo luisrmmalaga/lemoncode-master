@@ -1,0 +1,30 @@
+body {
+  background-color: aquamarine;
+}
+
+header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: darkcyan;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+
+  & :nth-child(3) {
+    background-color: darkslategray;
+
+    @media screen and (max-width: 550px) {
+      background-color: initial;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    height: 100%;
+    flex-direction: column;
+
+    & :first-child {
+      background-color: darkslategray;
+    }
+  }
+
+}

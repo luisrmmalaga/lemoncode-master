@@ -1,0 +1,68 @@
+@import "theme_a";
+// @import "theme_b";
+
+body {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise {
+  display: flex;
+  flex-direction: column;
+}
+
+.solution {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.container-1 {
+  display: flex;
+  gap: 5px;
+}
+
+.theme {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box {
+  border: 1px solid black;
+  width: 75px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $radius;
+}
+
+.primary-font {
+  font-family: $primary-font
+}
+
+.secondary-font {
+  font-family: $secondary-font
+}
+
+.base-box{
+  @extend .box;
+  background-color: $base-color;
+}
+
+.important-box {
+  @extend .box;
+  background-color: $important-color;
+}
+
+.warning-box {
+  @extend .box;
+  background-color: $warning-color;
+}
+
+.shadow-box {
+  @extend .box;
+  box-shadow: $box-shadow;
+}

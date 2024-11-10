@@ -1,0 +1,46 @@
+@use "palete" as *;
+
+body {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  border: 1px solid black;
+  width: 75px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@for $c from 1 through 3 {
+  .container-#{$c} {
+      $container-color: white;
+    @if $c == 1 {
+      $container-color: $base-color-1;
+    } @else if $c == 2 {
+      $container-color: $base-color-2;
+    } @else {
+      $container-color: $base-color-3;
+    }
+
+    display: flex;
+    gap: 5px;
+    margin: 5px;
+
+    @for $i from 1 through 4 {
+
+      @include darker-box($container-color, $i);
+
+      @include lighter-box($container-color, $i);
+
+      @include base-box($container-color);
+      
+    }
+  }
+}
+
+
+
