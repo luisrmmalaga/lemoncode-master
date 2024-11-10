@@ -3,11 +3,11 @@ $base-color-2: blue;
 $base-color-3: green;
 
 @function darker-color($color, $number) {
-    @return darken($color, $number * 2.5);
+    @return darken($color, $number * 4);
 }
 
 @function lighter-color($color, $number) {
-    @return lighten($color, $number * 2.5);
+    @return lighten($color, $number * 4);
 }
 
 @mixin darken($color, $number) {

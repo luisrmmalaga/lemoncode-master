@@ -35,10 +35,10 @@ body {
       @include darker-box($container-color, $i);
 
       @include lighter-box($container-color, $i);
-
-      @include base-box($container-color);
       
     }
+
+    @include base-box($container-color);
   }
 }
 
