@@ -1,4 +1,150 @@
-html {
+body {
   margin: 0px;
   padding: 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .page-title {
+    background-color: yellow;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+}
+
+.page-container {
+  display: flex;
+  flex: 1;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: olive;
+
+    .menu-container {
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0px;
+
+      .menu-title {
+        font-weight: bold;
+        justify-self: center;
+        align-self: center;
+        padding: 10px;
+        color: white;
+        text-transform: uppercase;
+  
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+  
+      .section {
+        padding: 10px;
+        border: 1px solid lightgrey;
+        background-color: lemonchiffon;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-direction: row;
+        gap: 15px;
+        padding: 10px;
+        width: 100%;
+      }
+      
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+  
+  main {
+    display: flex;
+    flex: 1;
+    background-color: gainsboro;
+    padding: 35px;
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      flex: 1;
+      gap: 20px 35px ;
+
+      .card-item {
+        width: 300px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+
+        img {
+          border-radius: 50%;
+        }
+
+        .member-name {
+          text-align: center;
+
+          @media screen and (max-width: 768px) {
+            text-align: left;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          flex-direction: row;
+          justify-content: flex-start;
+          border-radius: 0px;
+          border: 0px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: lemonchiffon;
+}
+
