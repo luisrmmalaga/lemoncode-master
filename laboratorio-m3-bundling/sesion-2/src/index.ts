@@ -1,4 +1,4 @@
-import { getAverage } from "./average-service.js";
+import { getAverage } from "./average-service";
 import imgRio from "./content/rio.png";
 import "./mystyles.scss";
 
