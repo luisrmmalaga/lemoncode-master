@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // Especifica el sistema de módulos compatible con Webpack
+    "module": "ESNext",
+
+    // Genera un target de ECMAScript moderno (cambia según tus necesidades)
+    "target": "ES6",
+
+    // Habilita las definiciones JSX para React
+    "jsx": "react",
+
+    // Genera mapas de origen para facilitar la depuración en Webpack
+    "sourceMap": true,
+
+    // Permite importaciones de archivos como imágenes o CSS
+    "esModuleInterop": true,
+
+    // Permite el uso de sintaxis más moderna y elimina errores innecesarios
+    "skipLibCheck": true,
+
+    // Detecta errores en las importaciones de módulos de tipo común
+    "forceConsistentCasingInFileNames": true,
+
+    // Habilita el uso de la resolución de módulos por Node.js
+    "moduleResolution": "node",
+
+    // Asegura que el proyecto puede trabajar como biblioteca o aplicación
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

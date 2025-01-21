@@ -1,0 +1,22 @@
+{
+    "name": "common-library-playground",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "vite --open"
+    },
+    "keywords": [],
+    "author": "Luis Ramos",
+    "dependencies": {
+        "@lrm/common-library": "file:../../common-library",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.0.7",
+        "@types/react-dom": "^19.0.3",
+        "typescript": "^5.7.3",
+        "vite": "^6.0.10"
+    }
+}
