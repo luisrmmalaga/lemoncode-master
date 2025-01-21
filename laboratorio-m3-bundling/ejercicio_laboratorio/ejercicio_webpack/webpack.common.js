@@ -13,7 +13,7 @@ export default {
     app: "./index.tsx",
   },
   output: {
-    filename: "[name].[chunkhash].bundle.js",
+    filename: "[name].[chunkhash].js",
     clean: true,
   },
   module: {
@@ -29,7 +29,7 @@ export default {
       },
       {
         test: /\.html$/,
-        loader: "html-loader",
+        use: "html-loader",
       },
     ],
   },

@@ -24,16 +24,12 @@ export default merge(common, {
               },
             },
           },
+          ,
           "sass-loader",
         ],
       },
     ],
   },
-  plugins: [
-    new Dotenv({
-      path: "./dev.env",
-    }),
-  ],
   devtool: "eval-source-map",
   devServer: {
     port: 8080,
@@ -46,4 +42,9 @@ export default merge(common, {
       stats: "errors-only",
     },
   },
+  plugins: [
+    new Dotenv({
+      path: "./dev.env",
+    }),
+  ],
 });

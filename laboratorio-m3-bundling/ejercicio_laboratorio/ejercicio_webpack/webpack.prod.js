@@ -1,24 +1,25 @@
+import Dotenv from "dotenv-webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { merge } from "webpack-merge";
 import common from "./webpack.common.js";
 
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-
 export default merge(common, {
-  context: path.resolve(__dirname, "src"),
-  entry: {
-    app: "./index.js",
-  },
-  output: {
-    filename: "[name].[chunkhash].bundle.js",
-    clean: true,
-  },
+  mode: "production",
   module: {
     rules: [
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader",
+        ],
       },
     ],
   },
