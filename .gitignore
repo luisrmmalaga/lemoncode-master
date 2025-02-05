@@ -15,3 +15,5 @@ package-lock.json
 # Output artifacts
 build/
 **/dist/
+
+**/create-react-app/
