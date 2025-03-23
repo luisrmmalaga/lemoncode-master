@@ -1,0 +1,15 @@
+<nav>
+  <mat-nav-list class="nav-list">
+    @for (link of navItems(); track link.route) {
+    <a
+      class="nav-link"
+      mat-list-item
+      [routerLink]="link.route"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [activated]="rla.isActive"
+      >{{ link.name }}</a
+    >
+    }
+  </mat-nav-list>
+</nav>

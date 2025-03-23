@@ -1,0 +1,10 @@
+footer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+
+  color: var(--mat-sys-on-primary-container);
+  background-color: var(--mat-sys-primary-container);
+}

@@ -1,0 +1,40 @@
+<mat-card class="login-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      [formGroup]="loginForm"
+      class="form-layout"
+      (ngSubmit)="checkCredentials($event)"
+    >
+      @for( field of loginFields; track field.inputId) {
+      <mat-form-field class="form-field">
+        <mat-label>{{ field.label }}</mat-label>
+        <input
+          matInput
+          [id]="field.inputId"
+          [type]="getFieldType(field)"
+          [formControlName]="field.formControlName"
+        />
+        @if(field.formControlName === 'password') {
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="changePasswordVisibility($event)"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility" : "visibility_off"
+          }}</mat-icon>
+        </button>
+        } @if (loginForm.get(field.formControlName)?.invalid) {
+        <mat-error>Error</mat-error>
+        }
+      </mat-form-field>
+      }
+
+      <button mat-fab extended type="submit">Access</button>
+    </form>
+  </mat-card-content>
+</mat-card>

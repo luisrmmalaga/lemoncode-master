@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  display: flex;
+  flex: 1;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.success-notification {
+  & > div {
+    background-color: lightgreen !important;
+    color: green !important;
+  }
+}
+
+.error-notification {
+  & > div {
+    background-color: var(--mat-sys-error-container) !important;
+    color: var(--mat-sys-on-error-container) !important;
+  }
+}
+
+.info-notification {
+  & > div {
+    background-color: var(--mat-sys-secondary-container) !important;
+    color: var(--mat-sys-on-secondary-container) !important;
+  }
+}
