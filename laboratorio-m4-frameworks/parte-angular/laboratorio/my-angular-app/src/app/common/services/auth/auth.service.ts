@@ -15,15 +15,21 @@ export class AuthService {
     password: 'angular',
   };
 
-  private readonly sessionState: WritableSignal<User | undefined> =
+  private readonly sessionState: WritableSignal<Partial<User> | undefined> =
     signal(undefined);
 
-  constructor() {}
+  constructor() {
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.sessionState.set(JSON.parse(user));
+    }
+  }
 
   login(user: User): boolean {
     const validCredentials = this.validCredentials(user);
 
     if (validCredentials) {
+      localStorage.setItem('user', JSON.stringify({ username: user.username }));
       this.sessionState.set(user);
     }
 
@@ -32,6 +38,7 @@ export class AuthService {
 
   logout(): void {
     this.sessionState.set(undefined);
+    localStorage.removeItem('user');
   }
 
   isLogged(): boolean {

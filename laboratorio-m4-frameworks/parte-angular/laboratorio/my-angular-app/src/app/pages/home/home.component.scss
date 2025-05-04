@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+img.escalada {
+  width: 350px;
+  height: auto;
+}
+
+.welcome {
+  align-items: center;
+  background-color: var(--mat-sys-surface-container-lowest);
+
+  -webkit-animation: jello-horizontal 0.9s both;
+  animation: jello-horizontal 0.9s both;
+}

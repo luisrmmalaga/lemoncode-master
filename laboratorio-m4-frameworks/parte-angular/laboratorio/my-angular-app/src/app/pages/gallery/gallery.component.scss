@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.big-image-container {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  text-align: center;
+  font-size: 0.85em;
+  color: #444;
+  font-family: "Courier New", monospace;
+}
+
+.big-image-container img {
+  width: auto;
+  height: 350px;
+  display: block;
+  border-radius: 4px;
+  transition: height 0.3s ease-in-out;
+
+  &.zoom-in {
+    height: 500px;
+  }
+
+  &.zoom-out {
+    height: 200px;
+  }
+}

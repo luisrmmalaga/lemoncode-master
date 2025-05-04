@@ -1,1 +1,17 @@
-<p>gallery works!</p>
+<app-carrousel
+  [selectedImage]="selectedImage()"
+  [images]="images"
+  direction="horizontal"
+  [currentIndex]="currentIndex"
+  (imageChanged)="showSelectedImage($event)"
+></app-carrousel>
+@if(selectedImage()) {
+<div class="big-image-container">
+  <img
+    [class.zoom-in]="zoomIn"
+    [class.zoom-out]="zoomOut"
+    [src]="selectedImage().src"
+  />
+</div>
+}
+<app-button-bar [buttons]="buttons"></app-button-bar>

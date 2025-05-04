@@ -1,0 +1,15 @@
+div.button-bar-container {
+  display: flex;
+  gap: 10px;
+
+  .button-item {
+    &.hidden {
+      display: none;
+    }
+
+    &.stop-button {
+      background-color: var(--mat-sys-error-container);
+      color: var(--mat-sys-on-error-container);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="button-bar-container">
+  @for(button of buttons; track button.id) {
+  <button
+    mat-fab
+    extended
+    [disabled]="button?.disabled() ?? false"
+    [class.hidden]="button?.hidden() ?? false"
+    (click)="button.action()"
+    class="button-item"
+    [class.stop-button]="button?.type === 'stop'"
+  >
+    {{ button.label }}
+  </button>
+  }
+</div>

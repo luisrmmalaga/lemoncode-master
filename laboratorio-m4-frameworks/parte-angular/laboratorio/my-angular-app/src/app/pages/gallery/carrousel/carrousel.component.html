@@ -1,0 +1,10 @@
+<div class="direction {{ direction }}">
+  @for ( image of images | slice:lowerLimit():upperLimit() ; track image.id) {
+  <img
+    class="carrousel-item"
+    [src]="image.src"
+    [class.selected]="selectedImage?.id === image.id"
+    (click)="itemClicked(image)"
+  />
+  }
+</div>
