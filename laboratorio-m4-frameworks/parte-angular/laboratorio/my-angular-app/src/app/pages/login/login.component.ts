@@ -1,4 +1,4 @@
-import { Component, computed, inject, Signal } from '@angular/core';
+import { Component, computed, inject, OnDestroy, Signal } from '@angular/core';
 import {
   FormControl,
   FormControlOptions,
@@ -16,6 +16,8 @@ import { User } from '../../common/services/auth/users.model';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../common/services/notification/notification.service';
 import { NotificationType } from '../../common/services/notification/notification.model';
+import { Subscription } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 interface Field {
   label: string;
@@ -33,21 +35,32 @@ interface Field {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   authService: AuthService = inject(AuthService);
   router: Router = inject(Router);
   notificationService: NotificationService = inject(NotificationService);
+
+  hidePassword: boolean = true;
+  loading: boolean = false;
+
+  private loginSubscription: Subscription | undefined = undefined;
 
   private readonly formControlCommonOptions: FormControlOptions = {
     nonNullable: true,
     validators: Validators.required,
   };
 
-  readonly loginFields: Field[] = [
+  protected readonly loginForm = new FormGroup({
+    username: new FormControl('', this.formControlCommonOptions),
+    password: new FormControl('', this.formControlCommonOptions),
+  });
+
+  protected readonly loginFields: Field[] = [
     {
       label: 'Username',
       inputId: 'login-form-username',
@@ -62,30 +75,27 @@ export class LoginComponent {
     },
   ];
 
-  readonly loginForm = new FormGroup({
-    username: new FormControl('', this.formControlCommonOptions),
-    password: new FormControl('', this.formControlCommonOptions),
-  });
-
-  hidePassword: boolean = true;
-
   checkCredentials($event: SubmitEvent): void {
     $event.preventDefault();
-    const isLogged = this.authService.login(this.loginForm.value as User);
-
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    if (isLogged) {
-      this.router.navigate(['/private']);
-    } else {
-      this.notificationService.showNotification(
-        'Invalid credentials',
-        NotificationType.Error
-      );
-    }
+    this.loading = true;
+    this.loginSubscription = this.authService
+      .login(this.loginForm.value as User)
+      .subscribe((isLogged) => {
+        if (isLogged) {
+          this.router.navigate(['/private']);
+        } else {
+          this.notificationService.showNotification(
+            'Invalid credentials',
+            NotificationType.Error
+          );
+        }
+        this.loading = false;
+      });
   }
 
   changePasswordVisibility($event: Event): void {
@@ -98,5 +108,9 @@ export class LoginComponent {
     }
 
     return this.hidePassword ? 'password' : 'text';
+  }
+
+  ngOnDestroy(): void {
+    this.loginSubscription?.unsubscribe();
   }
 }

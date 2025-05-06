@@ -4,10 +4,11 @@ import { IMAGES } from './image.data';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { ButtonBarComponent } from './button-bar/button-bar.component';
 import { Button } from './button-bar/button.model';
+import { RotateDirective } from './directives/rotate/rotate.directive';
 
 @Component({
   selector: 'app-gallery',
-  imports: [CarrouselComponent, ButtonBarComponent],
+  imports: [CarrouselComponent, ButtonBarComponent, RotateDirective],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })

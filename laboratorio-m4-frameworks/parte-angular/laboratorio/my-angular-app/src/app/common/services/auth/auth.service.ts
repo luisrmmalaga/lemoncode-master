@@ -1,5 +1,6 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { User } from './users.model';
+import { delay, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,15 +26,21 @@ export class AuthService {
     }
   }
 
-  login(user: User): boolean {
+  login(user: User): Observable<boolean> {
     const validCredentials = this.validCredentials(user);
 
-    if (validCredentials) {
-      localStorage.setItem('user', JSON.stringify({ username: user.username }));
-      this.sessionState.set(user);
-    }
-
-    return validCredentials;
+    return of(validCredentials).pipe(
+      delay(2000),
+      tap((validCredentials) => {
+        if (validCredentials) {
+          localStorage.setItem(
+            'user',
+            JSON.stringify({ username: user.username })
+          );
+          this.sessionState.set(user);
+        }
+      })
+    );
   }
 
   logout(): void {

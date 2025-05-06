@@ -34,7 +34,11 @@
       </mat-form-field>
       }
 
-      <button mat-fab extended type="submit">Access</button>
+      <button mat-fab extended type="submit">
+        @if(loading) {
+        <mat-spinner diameter="20" strokeWidth="3"></mat-spinner>
+        } @else { Access }
+      </button>
     </form>
   </mat-card-content>
 </mat-card>
