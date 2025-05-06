@@ -1,0 +1,22 @@
+.page-wrapper {
+  display: flex;
+  flex: 1;
+  background: #eee;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  background: linear-gradient(
+    to left,
+    var(--mat-sys-on-primary-container),
+    var(--mat-sys-primary-container)
+  );
+}
+
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

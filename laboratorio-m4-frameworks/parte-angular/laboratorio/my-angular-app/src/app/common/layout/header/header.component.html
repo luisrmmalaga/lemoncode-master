@@ -1,0 +1,17 @@
+<header>
+  <div class="header-start">
+    <img src="/angular-logo.webp" />
+    <span>My Angular App</span>
+  </div>
+  <div class="header-end">
+    @if(headerEndVisible()) {
+    <div class="user-chip">
+      <mat-icon>account_circle</mat-icon>{{ userLogged() }}
+    </div>
+    <button mat-flat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+    }
+  </div>
+</header>

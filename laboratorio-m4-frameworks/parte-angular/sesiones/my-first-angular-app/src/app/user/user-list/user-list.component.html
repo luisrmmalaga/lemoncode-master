@@ -1,0 +1,30 @@
+<h2>User List</h2>
+<pre>{{ members | json }}</pre>
+<table>
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (member of members; track member.id) {
+    <tr>
+      <td><img src="{member.avatar_url}" /></td>
+      <td>
+        <span>{{ member.id }}</span>
+      </td>
+      <td>{{ member.login }}</td>
+    </tr>
+    } @empty { @if (loading) {
+    <tr>
+      Cargando...
+    </tr>
+    } @else {
+    <tr>
+      No hay miembros
+    </tr>
+    } }
+  </tbody>
+</table>

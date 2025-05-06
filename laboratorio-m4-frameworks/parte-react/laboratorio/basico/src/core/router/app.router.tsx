@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { switchRoutes } from "./routes";
 
-export const AppRouter = () => {
+export const AppRouter: React.FC = () => {
   return (
     <Router>
       <Routes>
