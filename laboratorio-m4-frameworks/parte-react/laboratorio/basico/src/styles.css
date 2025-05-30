@@ -1,7 +1,87 @@
 body {
   background-color: black;
   color: white;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   height: 100vh;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}
+
+.layout-app-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.user-list-header {
+  display: flex;
+  border: 1px solid skyblue;
+  background-color: royalblue;
+}
+
+.user-list-column {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.first-column {
+    width: 10%;
+    & img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &.second-column {
+    width: 30%;
+  }
+
+  &.third-column {
+    width: 60%;
+  }
+}
+
+.user-list-content {
+  display: flex;
+  border: 1px solid skyblue;
+  background-color: white;
+  color: black;
+
+  &:hover {
+    background-color: lightsteelblue;
+  }
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid skyblue;
+  background-color: white;
+  color: black;
 }

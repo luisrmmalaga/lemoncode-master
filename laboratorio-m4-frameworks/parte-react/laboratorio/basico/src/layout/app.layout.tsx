@@ -1,9 +1,5 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-interface Props {
-  children: React.ReactNode;
-}
-
-export const AppLayout: React.FC<Props> = ({ children }) => {
+export const AppLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return <div className="layout-app-container">{children}</div>;
 };

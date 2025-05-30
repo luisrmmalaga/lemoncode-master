@@ -1,6 +1,11 @@
 import React from "react";
-import { AppRouter } from "@/core";
+import { AppRouter } from "@/router";
+import { OrganisationProvider } from "./core/providers";
 
 export const App = () => {
-  return <AppRouter />;
+  return (
+    <OrganisationProvider>
+      <AppRouter />
+    </OrganisationProvider>
+  );
 };
